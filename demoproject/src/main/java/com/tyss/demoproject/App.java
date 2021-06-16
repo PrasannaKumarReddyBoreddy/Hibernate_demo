@@ -17,17 +17,20 @@ public class App
     public static void main( String[] args )
     {
     	Student st = new Student();
-    	st.setMarks(95.324);
-    	st.setSid(101);
-    	st.setSName("Boreddy");
+    	st.setMarks(70.79);
+    	st.setSid(202);
+    	st.setSName("manoharreddy");
+    	Emp emp = new Emp();
+    	emp.setEmpid(101);
+    	emp.setEname("prasanna kumar reddy boreddy ");
        // System.out.println( "Hello World!" );
-    	Configuration con = new Configuration().configure().addAnnotatedClass(Student.class);
+    	Configuration con = new Configuration().configure().addAnnotatedClass(Emp.class);
     	ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(con.getProperties()).build();
 
     	SessionFactory factory = con.buildSessionFactory();
     	Session session =factory.openSession();
     	org.hibernate.Transaction tx = session.beginTransaction();
-    	session.save(st);
+    	session.save(emp);
     	tx.commit();
     	
     	
